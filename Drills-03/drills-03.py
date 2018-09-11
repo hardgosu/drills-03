@@ -7,7 +7,9 @@ import math
 open_canvas()
 
 
-os.chdir('C:\\temp1\\lab01')
+path = os.getcwd()
+
+os.chdir(path)
 
 
 grass = load_image('grass.png')
