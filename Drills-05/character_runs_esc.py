@@ -83,7 +83,10 @@ dir = 0
 y = 90
 row = 0
 
-GotoSomeCoordinateUntilEnd(203,535)
-GotoSomeCoordinateUntilEnd(132,243)
-GotoSomeCoordinateUntilEnd(535,470)
+GotoSomeCoordinateUntilEnd(203, 535)
+GotoSomeCoordinateUntilEnd(132, 243)
+GotoSomeCoordinateUntilEnd(535, 470)
+GotoSomeCoordinateUntilEnd(477, 203)
+
+
 close_canvas()
