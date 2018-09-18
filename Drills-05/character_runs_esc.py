@@ -35,7 +35,7 @@ def GotoSomeCoordinate(x,y,curX,curY):
         dirY -= 1
 
 
-def GotoSomeCordinateUntilEnd(newX,newY):
+def GotoSomeCoordinateUntilEnd(newX,newY):
 
         global dirX
         global dirY
@@ -83,7 +83,7 @@ dir = 0
 y = 90
 row = 0
 
-GotoSomeCordinateUntilEnd(203,535)
+GotoSomeCoordinateUntilEnd(203,535)
 
 while running:
     dirX = 0
