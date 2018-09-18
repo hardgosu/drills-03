@@ -8,7 +8,16 @@ character = load_image('character.png')
 #오늘은 진도 안나가고 이대현교수님의 특강 18 09 18
 
 def move_from_center_to_right():
-    pass
+    x,y = 800 // 2,90
+
+    while x < 800 - 25:
+        clear_canvas_now()
+        grass.draw_now(400,30)
+        character.draw_now(x,y)
+        x += 2
+        delay(0.01)
+
+
 def move_up():
     pass
 def move_left():
@@ -16,6 +25,8 @@ def move_left():
 def move_down():
     pass
 def move_left_to_center():
+
+
     pass
 
 
