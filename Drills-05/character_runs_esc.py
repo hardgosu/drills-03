@@ -84,26 +84,6 @@ y = 90
 row = 0
 
 GotoSomeCoordinateUntilEnd(203,535)
-
-while running:
-    dirX = 0
-    dirY = 0
-    clear_canvas()
-    grass.draw(400, 30)
-    GotoSomeCoordinate(203,535,x,y)
-    #handle_events()
-    frame = (frame + 1) % 8
-    x += dirX
-    y += dirY
-    if dirX >= 0:
-        row = 1
-    elif dirX < 0:
-        row = 0
-
-    character.clip_draw(frame * 100, 100 * row, 100, 100, x, y)
-    delay(0.05)
-    update_canvas()
-    if dirX == 0 and dirY == 0:
-        break
+GotoSomeCoordinateUntilEnd(132,243)
 
 close_canvas()
