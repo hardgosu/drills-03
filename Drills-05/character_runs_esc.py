@@ -64,14 +64,14 @@ def GotoSomeCoordinateUntilEnd(newX,newY):
                 row = 0
 
             character.clip_draw(frame * 100, 100 * row, 100, 100, x, y)
-            delay(0.01)
+            delay(0.005)
             update_canvas()
             if dirX == 0 and dirY == 0:
                 break
 
 
 open_canvas()
-grass = load_image('grass.png')
+grass = load_image('KPU_GROUND_FULL.png')
 character = load_image('animation_sheet.png')
 
 dirX = 0
@@ -82,11 +82,21 @@ frame = 0
 dir = 0
 y = 90
 row = 0
+while True:
+    GotoSomeCoordinateUntilEnd(203, 535)
+    GotoSomeCoordinateUntilEnd(132, 243)
+    GotoSomeCoordinateUntilEnd(535, 470)
+    GotoSomeCoordinateUntilEnd(477, 203)
+    GotoSomeCoordinateUntilEnd(715, 136)
+    GotoSomeCoordinateUntilEnd(316, 225)
+    GotoSomeCoordinateUntilEnd(510, 92)
+    GotoSomeCoordinateUntilEnd(692, 518)
+    GotoSomeCoordinateUntilEnd(682, 336)
+    GotoSomeCoordinateUntilEnd(712, 349)
 
-GotoSomeCoordinateUntilEnd(203, 535)
-GotoSomeCoordinateUntilEnd(132, 243)
-GotoSomeCoordinateUntilEnd(535, 470)
-GotoSomeCoordinateUntilEnd(477, 203)
-GotoSomeCoordinateUntilEnd(715, 136)
-GotoSomeCoordinateUntilEnd(316, 225)
+    GotoSomeCoordinateUntilEnd(800//2, 90)
+
+
+
+
 close_canvas()
