@@ -88,5 +88,5 @@ GotoSomeCoordinateUntilEnd(132, 243)
 GotoSomeCoordinateUntilEnd(535, 470)
 GotoSomeCoordinateUntilEnd(477, 203)
 GotoSomeCoordinateUntilEnd(715, 136)
-
+GotoSomeCoordinateUntilEnd(316, 225)
 close_canvas()
