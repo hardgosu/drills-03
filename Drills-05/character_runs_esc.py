@@ -85,5 +85,5 @@ row = 0
 
 GotoSomeCoordinateUntilEnd(203,535)
 GotoSomeCoordinateUntilEnd(132,243)
-
+GotoSomeCoordinateUntilEnd(535,470)
 close_canvas()
