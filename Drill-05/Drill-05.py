@@ -7,8 +7,26 @@ character = load_image('character.png')
 
 #오늘은 진도 안나가고 이대현교수님의 특강 18 09 18
 
+def move_from_center_to_right():
+    pass
+def move_up():
+    pass
+def move_left():
+    pass
+def move_down():
+    pass
+def move_left_to_center():
+    pass
+
+
 def make_rectangle():
-    open_canvas()
+    move_from_center_to_right()
+    move_up()
+    move_left()
+    move_down()
+    move_left_to_center()
+
+
     pass
 
 def make_circle():
