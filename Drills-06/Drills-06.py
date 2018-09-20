@@ -71,6 +71,35 @@ accumulatedX = 0
 accumulatedY = 0
 
 
+# 잘라낸 캐릭터 크기 33 X 77
+# 전체 캐릭텅 미지 크기 42X92
+while running:
+    clear_canvas()
+    kpu_ground.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
+    character.clip_draw(frame * 100, 100 * row, 100, 100, x-(33//2), y + (77/2 - 10))
+    cursor.draw(cursorX,cursorY)
+    update_canvas()
+    frame = (frame + 1) % 8
+    delay(0.02)
+    handle_events()
+    print(distanceY)
+    if characterMoveFlag == True:
+        if destinationX < x:
+            x -= 5
+            accumulatedX += 5
+            row = 0
+        elif destinationX >= x:
+            x += 5
+            accumulatedX += 5
+            row = 1
+        if destinationY >= y:
+            y += 5
+            accumulatedY += 5
+
+        elif destinationY < y:
+            y -= 5
+            accumulatedY += 5
+
 
 
 
