@@ -99,7 +99,8 @@ while running:
         elif destinationY < y:
             y -= 5
             accumulatedY += 5
-
+        if accumulatedX >= distanceX and accumulatedY >= distanceY:
+            characterMoveFlag = False
 
 
 
