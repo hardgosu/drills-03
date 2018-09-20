@@ -43,7 +43,6 @@ def SetDestination(newX,newY):
 
 
 
-# fill here
 kpu_ground = load_image('KPU_GROUND.png')
 character = load_image('animation_sheet.png')
 cursor = load_image('hand_arrow.png')
