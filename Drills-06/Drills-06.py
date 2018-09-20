@@ -82,7 +82,7 @@ while running:
     frame = (frame + 1) % 8
     delay(0.02)
     handle_events()
-    print(distanceY)
+    #print(distanceY)
     if characterMoveFlag == True:
         if destinationX < x:
             x -= 5
