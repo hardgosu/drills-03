@@ -75,6 +75,14 @@ points = [(random.randint(0,800),random.randint(0,600)) for i in range(size)]
 n = 0
 
 temp = [(200,200),(500,300)]
+while running:
+    clear_canvas()
+    kpu_ground.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
+    character.clip_draw(frame * 100, 100 * row, 100, 100, x-(33//2), y + (77/2 - 10))
+    cursor.draw(cursorX,cursorY)
+    update_canvas()
+    frame = (frame + 1) % 8
+
 
 
 
