@@ -84,7 +84,7 @@ while running:
     frame = (frame + 1) % 8
     n = (n  + 1)% 20
 
-        SetDestination(points[n-1],points[n ])
+    SetDestination(points[n-1],points[n ])
 
 
 
