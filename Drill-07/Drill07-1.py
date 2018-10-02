@@ -83,8 +83,8 @@ while running:
     update_canvas()
     frame = (frame + 1) % 8
 
-    SetDestination(temp[0],temp[1])
-    #n = (n  + 1)% 20
+    SetDestination(points[n],points[n + 1])
+    n = (n  + 1)% 20
 
 
 
