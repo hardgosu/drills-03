@@ -121,6 +121,10 @@ index = 0
 for i in range(0,4):
     draw_big_point(points[i])
 
+while True:
+    for i in range(0,4):
+        DrawCurveBy3PointLimit(points[(i + index) % 4],points[((i + index) + 1) % 4],points[((i + index) + 2) % 4],0,0)
+
 
 
 #draw_curve_4_points((-350, -100), (-50, 200), (150, -100), (350, 300))
