@@ -50,13 +50,15 @@ def MoveCurve(character, p1, p2, p3, parameterLimitStart, parameterLimitEnd):
     global row
     global cursorY
     global cursorX
-
+    global stamp
+    global size
     for i in range(parameterLimitStart, parameterLimitEnd + 1, 2):
         t = i / 100
         x = (2 * t ** 2 - 3 * t + 1) * p1[0] + (-4 * t ** 2 + 4 * t) * p2[0] + (2 * t ** 2 - t) * p3[0]
         y = (2 * t ** 2 - 3 * t + 1) * p1[1] + (-4 * t ** 2 + 4 * t) * p2[1] + (2 * t ** 2 - t) * p3[1]
         DrawCharacter(character)
         delay(0.02)
+    stamp = (stamp + 1) % size
     pass
 
 
@@ -76,13 +78,15 @@ def DrawCharacter(character):
     global row
     global points
     global stamp
+
     clear_canvas()
     kpu_ground.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
     character.clip_draw(frame * 100, 100 * row, 100, 100, x - (33 // 2), y + (77 / 2 - 10))
-    cursor.draw(200, 200)
-    cursor.draw(cursorX, cursorY)
 
-    
+    for i in range(0,stamp + 1):
+        cursor.draw(points[i][0], points[i][1])
+
+
     update_canvas()
     frame = (frame + 1) % 8
     delay(0.02)
