@@ -97,7 +97,6 @@ def DrawCharacter(character):
 kpu_ground = load_image('KPU_GROUND.png')
 character = load_image('animation_sheet.png')
 cursor = load_image('hand_arrow.png')
-noName = load_image('hand_arrow.png')
 
 running = True
 x, y = KPU_WIDTH // 2, KPU_HEIGHT // 2
