@@ -123,7 +123,7 @@ for i in range(0,4):
 
 while True:
     for i in range(0,4):
-        DrawCurveBy3PointLimit(points[(i + index) % 4],points[((i + index) + 1) % 4],points[((i + index) + 2) % 4],0,20)
+        DrawCurveBy3PointLimit(points[(i + index) % 4],points[((i + index) + 1) % 4],points[((i + index) + 2) % 4],50,100)
 
 
 
