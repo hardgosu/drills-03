@@ -70,6 +70,19 @@ def RenderingPipeline():
 
 # 하나의 인스턴스를 참조해야한다.
 def DrawCharacter(character):
+    global x
+    global y
+    global frame
+    global row
+    global points
+    clear_canvas()
+    kpu_ground.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
+    character.clip_draw(frame * 100, 100 * row, 100, 100, x - (33 // 2), y + (77 / 2 - 10))
+    cursor.draw(200, 200)
+    cursor.draw(cursorX, cursorY)
+    update_canvas()
+    frame = (frame + 1) % 8
+    delay(0.02)
 
     pass
 
