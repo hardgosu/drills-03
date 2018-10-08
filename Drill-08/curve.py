@@ -128,7 +128,7 @@ def draw_curve_5_points(p1, p2, p3, p4,p5):
         draw_point((x, y))
     draw_point(p4)
 
-    for i in range(50, 100, 2):
+    for i in range(0, 100, 2):
         t = i / 100
         x = (2*t**2-3*t+1)*p3[0]+(-4*t**2+4*t)*p4[0]+(2*t**2-t)*p5[0]
         y = (2*t**2-3*t+1)*p3[1]+(-4*t**2+4*t)*p4[1]+(2*t**2-t)*p5[1]
@@ -146,5 +146,5 @@ prepare_turtle_canvas()
 #raw_curve_3_points((-50, 200), (150, -100), (350, 300))
 
 #draw_curve_4_points((-350, -100), (-50, 200), (150, -100), (350, 300))
-draw_curve_5_points((-350, -100), (-50, 200), (150, -100), (350, 300),(500,350))
+draw_curve_5_points((-300, 200), (400, 350), (300, -300), (-200, -200),(-300, 200))
 turtle.done()

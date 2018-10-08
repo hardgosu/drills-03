@@ -1,0 +1,3 @@
+[console_scripts]
+pico2d = pico2d:main
+
