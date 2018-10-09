@@ -66,3 +66,22 @@ def handle_events():
 
 # initialization code
 open_canvas()
+
+team = [Boy() for i in range(11)]
+
+soccerBalls = [SoccerBall() for i in range(20)]
+
+
+
+grass = Grass()
+running = True;
+
+for boy in team:
+    boy.frame = random.randint(0,7)
+    boy.x = random.randint(100, 700)
+
+
+
+
+# finalization code
+close_canvas()
