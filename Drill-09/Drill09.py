@@ -80,6 +80,25 @@ for boy in team:
     boy.frame = random.randint(0,7)
     boy.x = random.randint(100, 700)
 
+# game main loop code
+
+while running:
+    handle_events()
+    clear_canvas()
+    for soccerBall in soccerBalls:
+        if soccerBall.size == 0 :
+            soccerBall.update(0,60)
+        else:
+            soccerBall.update(0,70)
+        soccerBall.draw()
+    #print(soccerBall.x)
+    for boy in team:
+        boy.update()
+        boy.draw()
+    grass.draw()
+    update_canvas()
+    delay(0.05)
+
 
 
 
