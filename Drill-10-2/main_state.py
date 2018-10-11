@@ -7,7 +7,7 @@ from pico2d import *
 import game_framework
 import title_state
 import pause_state
-import luxury_pause_state
+import advanced_pause_state
 
 name = "MainState"
 
