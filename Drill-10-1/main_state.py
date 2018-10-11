@@ -73,7 +73,9 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.change_state(title_state)
-
+        elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_p):
+            #game_framework.push_state(luxury_pause_state)
+            game_framework.push_state(pause_state)
 def update():
     boy.update()
 
