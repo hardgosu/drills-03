@@ -1,4 +1,0 @@
-def Fuck():
-    print('Fuck')
-
-
