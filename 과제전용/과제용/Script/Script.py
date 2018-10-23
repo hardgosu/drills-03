@@ -1,0 +1,4 @@
+def Fuck():
+    print('Fuck')
+
+
