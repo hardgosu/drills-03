@@ -16,7 +16,10 @@ key_event_table = {
     (SDL_KEYUP, SDLK_RIGHT): RIGHT_UP,
     (SDL_KEYUP, SDLK_LEFT): LEFT_UP,
     (SDL_KEYDOWN,SDLK_SPACE) : SPACE,
-
+    (SDL_KEYDOWN, SDLK_LSHIFT): LSHIFT,
+    (SDL_KEYDOWN, SDLK_RSHIFT): RSHIFT,
+    (SDL_KEYUP, SDLK_LSHIFT): LSHIFTUP,
+    (SDL_KEYUP, SDLK_RSHIFT): RSHIFTUP
 
 }
 
@@ -166,6 +169,7 @@ next_state_table = {
                 SPACE: RunState},
 
     SleepState:  { LEFT_DOWN: RunState, RIGHT_DOWN :RunState, LEFT_UP: RunState, RIGHT_UP: RunState,SPACE: IdleState},
+    DashState: { LEFT_DOWN: IdleState, RIGHT_DOWN :IdleState, LEFT_UP: IdleState, RIGHT_UP: IdleState,LSHIFT : IdleState, RSHIFT : IdleState}
 
 }
 
