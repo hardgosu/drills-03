@@ -164,13 +164,13 @@ class DashState:
 next_state_table = {
 # fill here
     IdleState: { RIGHT_UP : RunState, LEFT_UP : RunState, RIGHT_DOWN : RunState, LEFT_DOWN: RunState, SLEEP_TIMER: SleepState,
-                 SPACE: IdleState},
+                 SPACE: IdleState,LSHIFT : IdleState, RSHIFT : IdleState,LSHIFTUP : IdleState,RSHIFTUP : IdleState},
     RunState: { RIGHT_UP : IdleState,LEFT_UP: IdleState, LEFT_DOWN: IdleState, RIGHT_DOWN : IdleState,
-                SPACE: RunState},
+                SPACE: RunState, LSHIFT : DashState, RSHIFT : DashState,LSHIFTUP:RunState,RSHIFTUP:RunState},
 
     SleepState:  { LEFT_DOWN: RunState, RIGHT_DOWN :RunState, LEFT_UP: RunState, RIGHT_UP: RunState,SPACE: IdleState},
-    DashState: { LEFT_DOWN: IdleState, RIGHT_DOWN :IdleState, LEFT_UP: IdleState, RIGHT_UP: IdleState,LSHIFT : IdleState, RSHIFT : IdleState}
 
+    DashState: { LEFT_DOWN: IdleState, RIGHT_DOWN :IdleState, LEFT_UP: IdleState, RIGHT_UP: IdleState,LSHIFT : IdleState, RSHIFT : IdleState}
 }
 
 class Boy:
