@@ -10,7 +10,7 @@ import math
 # Boy Run Speed
 # fill expressions correctly
 PIXEL_PER_METER = (10.0 / 0.3) # 10 pixel 30 cm
-RUN_SPEED_KMPH = 20.0 # Km / Hour
+RUN_SPEED_KMPH = 2.2 # Km / Hour
 RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
 RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
 RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
@@ -23,7 +23,7 @@ TIME_PER_ACTION = 0.5
 ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
 FRAMES_PER_ACTION = 8
 
-
+Degree = 0
 
 W = 4 * math.pi
 
@@ -38,8 +38,7 @@ class Ghost:
         # fill here
         self.font = load_font('ENCR10B.TTF', 16)
         self.dir = 1
-        self.velocityX = 0
-        self.velocityY = 0
+        self.velocity = 0
         self.frame = 0
 
 
@@ -49,7 +48,16 @@ class Ghost:
 
 
     def update(self):
+        global Degree
         self.frame = (self.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 8
+        self.image.opacify(self.opacify)
+
+        Degree = (Degree + math.degrees(W* game_framework.frame_time) ) % 720
+
+
+        self.velocity = 3   * math.cos(math.radians(Degree))
+        #self.x += self.velocityX * RUN_SPEED_PPS
+        #self.y += self. *velocityY RUN_SPEED_PPS
 
         pass
 
