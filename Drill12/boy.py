@@ -1,6 +1,8 @@
 import game_framework
 from pico2d import *
 from ball import Ball
+from ghost import Ghost
+import main_state
 
 import game_world
 import random
@@ -41,7 +43,7 @@ class IdleState:
     timer = 0
     frameTime = 0
 
-
+    accum = 0
 
     @staticmethod
     def enter(boy, event):
@@ -54,7 +56,7 @@ class IdleState:
         elif event == LEFT_UP:
             boy.velocity += RUN_SPEED_PPS
         IdleState.timer = get_time()
-
+        IdleState.accum = 0
 
 
 
@@ -72,7 +74,11 @@ class IdleState:
         IdleState.frameTime = get_time() - IdleState.timer
 
         IdleState.timer += IdleState.frameTime
+        IdleState.accum += IdleState.frameTime
 
+
+        if IdleState.accum >= 10:
+            boy.add_event(SLEEP_TIMER)
 
 
 
@@ -126,44 +132,21 @@ class RunState:
 
 class SleepState:
 
-
-    step = 0
-    degree = 30
-    ghostVelocityX = 0
-    ghostVelocityY = 0
-    pixel_per_threeMeter = 333
-    degree = -90
-
-    currentTime = 0
-    frameTime = 0
-    timer = 0
-
-
-    ghostVX = 0
-    ghostVY = 0
-    ghostPosX = 0
-    ghostPosY = 0
-    newDegree = 12
-
     @staticmethod
     def enter(boy, event):
         boy.frame = 0
-        SleepState.currentTime = get_time()
-        SleepState.frameTime = 0
-        SleepState.timer = 0
-
-        SleepState.ghostPosX = boy.x
-        SleepState.ghostPosY = boy.y + SleepState.pixel_per_threeMeter
-
-        radian = math.radians(SleepState.newDegree)
+        global ghost
+        ghost = Ghost()
+        game_world.add_object(ghost, 1)
+        ghost.start(boy)
 
     @staticmethod
     def exit(boy, event):
+        global ghost
+        game_world.remove_object(ghost)
+
         pass
 
-#지름 곱하기 3.14....는 2091
-#2091 * 2를 1초만에 움직여야..
-#37.68m/s
 
 
     @staticmethod
@@ -171,41 +154,16 @@ class SleepState:
         boy.frame = (boy.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 8
 
 
-        SleepState.frameTime = get_time() - SleepState.currentTime
-        SleepState.currentTime += SleepState.frameTime
-        SleepState.timer += SleepState.frameTime
-
-        radian = math.radians(SleepState.degree)
-        SleepState.ghostVelocityX = ( boy.x + SleepState.pixel_per_threeMeter * math.cos(radian))
-        SleepState.ghostVelocityY = (boy.y + SleepState.pixel_per_threeMeter + SleepState.pixel_per_threeMeter * math.sin(radian))
-        SleepState.degree += 720 / 60
-
-
-        SleepState.ghostVX = (SleepState.pixel_per_threeMeter * math.cos(radian))
-        SleepState.ghostVY = (SleepState.pixel_per_threeMeter * math.sin(radian))
-
-        SleepState.ghostPosX += SleepState.ghostVX * 0.1
-        SleepState.ghostPosY += SleepState.ghostVY * 0.1
 
 
 
     @staticmethod
     def draw(boy):
         if boy.dir == 1:
-            boy.image.opacify(1)
             boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, 3.141592 / 2, '', boy.x - 25, boy.y - 25, 100, 100)
-            boy.image.opacify(random.randint(0,10) / 10.0)
 
-            boy.image.clip_draw(int(boy.frame) * 100, 300, 100, 100, SleepState.ghostVelocityX, SleepState.ghostVelocityY)
-
-            boy.font.draw(boy.x - 60, boy.y + 100, '(Time: %3.2f)' % SleepState.timer, (122, 255, 0))
         else:
-            boy.image.opacify(1)
             boy.image.clip_composite_draw(int(boy.frame) * 100, 200, 100, 100, -3.141592 / 2, '', boy.x + 25, boy.y - 25, 100, 100)
-            boy.image.opacify(random.randint(0,10) / 10.0)
-
-            boy.image.clip_draw(int(boy.frame) * 100, 300, 100, 100, SleepState.ghostPosX, SleepState.ghostPosY)
-
 
 
 

@@ -21,8 +21,6 @@ def enter():
     game_world.add_object(grass, 0)
     game_world.add_object(boy, 1)
 
-    ghost = Ghost()
-    game_world.add_object(ghost,1)
 
 
 def exit():

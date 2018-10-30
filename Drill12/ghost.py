@@ -47,6 +47,18 @@ class Ghost:
 
         self.activate = False
 
+        self.startPointX = 800
+        self.startPointY = 400
+
+    def start(self,boy):
+        self.startPointX = boy.x
+        self.startPointY = boy.y
+
+
+
+
+        pass
+
     def update(self):
         global Degree
         self.frame = (self.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 8
@@ -54,10 +66,11 @@ class Ghost:
 
         Degree = (Degree + math.degrees(W* game_framework.frame_time) ) % 720
 
+        self.opacify = (random.randint(0,10) % 11) / 10.0
 
         self.velocity = 3   * PIXEL_PER_METER
-        self.x = 800 + self.velocity * math.cos(math.radians(Degree))
-        self.y = 400 + self.velocity * math.sin(math.radians(Degree))
+        self.x = self.startPointX + self.velocity * math.cos(math.radians(Degree))
+        self.y = self.startPointY + self.velocity * math.sin(math.radians(Degree))
 
 
 
