@@ -10,7 +10,7 @@ import math
 # Boy Run Speed
 # fill expressions correctly
 PIXEL_PER_METER = (10.0 / 0.3) # 10 pixel 30 cm
-RUN_SPEED_KMPH = 2.2 # Km / Hour
+RUN_SPEED_KMPH = 20 # Km / Hour
 RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
 RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
 RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
@@ -45,7 +45,7 @@ class Ghost:
         self.timer = 0
         self.opacify = 0.7
 
-
+        self.activate = False
 
     def update(self):
         global Degree
@@ -55,9 +55,11 @@ class Ghost:
         Degree = (Degree + math.degrees(W* game_framework.frame_time) ) % 720
 
 
-        self.velocity = 3   * math.cos(math.radians(Degree))
-        #self.x += self.velocityX * RUN_SPEED_PPS
-        #self.y += self. *velocityY RUN_SPEED_PPS
+        self.velocity = 3   * PIXEL_PER_METER
+        self.x = 800 + self.velocity * math.cos(math.radians(Degree))
+        self.y = 400 + self.velocity * math.sin(math.radians(Degree))
+
+
 
         pass
 
