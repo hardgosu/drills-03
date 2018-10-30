@@ -4,6 +4,9 @@ from ball import Ball
 
 import game_world
 import random
+
+import math
+
 # Boy Run Speed
 # fill expressions correctly
 PIXEL_PER_METER = (10.0 / 0.3) # 10 pixel 30 cm
@@ -22,6 +25,8 @@ FRAMES_PER_ACTION = 8
 
 
 
+W = 4 * math.pi
+
 
 
 class Ghost:
@@ -33,7 +38,8 @@ class Ghost:
         # fill here
         self.font = load_font('ENCR10B.TTF', 16)
         self.dir = 1
-        self.velocity = 0
+        self.velocityX = 0
+        self.velocityY = 0
         self.frame = 0
 
 
@@ -43,14 +49,12 @@ class Ghost:
 
 
     def update(self):
-        self.cur_state.do(self)
-        if len(self.event_que) > 0:
-            event = self.event_que.pop()
-            self.cur_state.exit(self, event)
-            self.cur_state = next_state_table[self.cur_state][event]
-            self.cur_state.enter(self, event)
+        self.frame = (self.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 8
+
+        pass
 
     def draw(self):
-        self.cur_state.draw(self)
-        self.font.draw(self.x - 60, self.y + 50, '(Time: %3.2f)' % get_time(), (255, 255, 0))
-        # fill here
+        if self.dir == 1:
+            self.image.clip_draw(int(self.frame) * 100, 300, 100, 100, self.x, self.y)
+        else:
+            self.image.clip_draw(int(self.frame) * 100, 200, 100, 100, self.x, self.y)
