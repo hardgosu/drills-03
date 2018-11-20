@@ -79,7 +79,7 @@ class WalkingState:
         #클램프에 주는게 직선의 방정식?
         #직선의 방정식은 일단 y = mx
         #그러면 x = y/m이로다
-
+        #일단 경기장 왼쪽위의 펜스 좌표를 구해보니 200,1042 이다
 
     @staticmethod
     def draw(boy):
