@@ -77,6 +77,8 @@ class WalkingState:
         boy.y = clamp(0, boy.y, boy.bg.h)
 
         #클램프에 주는게 직선의 방정식?
+        #직선의 방정식은 일단 y = mx
+        
 
     @staticmethod
     def draw(boy):
