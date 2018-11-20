@@ -73,13 +73,17 @@ class WalkingState:
 
         # fill here
 
-        boy.x = clamp(0, boy.x, boy.bg.w)
-        boy.y = clamp(0, boy.y, boy.bg.h)
+        #boy.x = clamp(0, boy.x, boy.bg.w)
+        #boy.y = clamp(0, boy.y, boy.bg.h)
 
         #클램프에 주는게 직선의 방정식?
         #직선의 방정식은 일단 y = mx
         #그러면 x = y/m이로다
         #일단 경기장 왼쪽위의 펜스 좌표를 구해보니 200,1042 이다
+
+
+        boy.x = clamp(0 + boy.y * (200 - 0) // (1042 - 0)  , boy.x, boy.bg.w - boy.y * (200 - 0) // (1042 - 0))
+        boy.y = clamp(boy.bg.h * 0.06, boy.y, boy.bg.h - boy.bg.h * 0.06)
 
     @staticmethod
     def draw(boy):
