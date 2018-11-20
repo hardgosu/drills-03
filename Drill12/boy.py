@@ -77,7 +77,7 @@ class IdleState:
         IdleState.accum += IdleState.frameTime
 
 
-        if IdleState.accum >= 10:
+        if IdleState.accum >= 1:
             boy.add_event(SLEEP_TIMER)
 
 
