@@ -45,7 +45,11 @@ def enter():
     background = Background()
     game_world.add_object(background, 0)
 
+    balls = [Ball() for i in range(100)]
+    game_world.add_objects(balls, 1)
 
+    for ball in balls:
+        ball.set_background(background)
 
     # fill here
 
