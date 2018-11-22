@@ -136,6 +136,14 @@ class Boy:
         self.cur_state.enter(self, None)
 
 
+        self.bgm = load_music('football.mp3')
+        self.bgm.set_volume(64)
+        self.bgm.repeat_play()
+
+
+        self.eat_sound = load_wav('pickup.wav')
+        self.eat_sound.set_volume(32)
+
 
         self.numberOfEatenBall = 0
 
@@ -153,7 +161,8 @@ class Boy:
 
     def eat(self, ball):
         # fill here
-
+        self.eat_sound.play()
+        self.numberOfEatenBall +=1
         pass
 
 
