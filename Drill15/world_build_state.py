@@ -64,6 +64,9 @@ def load_saved_world():
         if isinstance(o, Boy):
             boy = o
             break
+            #조건에 맞으면 보이로 설정한다.
+            #소년 객체가 하나뿐이라서..break
+
 
 def handle_events():
     events = get_events()
