@@ -35,6 +35,8 @@ def all_objects():
 def save():
     # fill here
 
+
+
     with open('game.sav', 'wb') as f:
         pickle.dump(objects, f)
 
