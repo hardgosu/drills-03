@@ -2,6 +2,8 @@ import random
 import json
 import pickle
 import os
+import json
+
 
 from pico2d import *
 import game_framework
@@ -31,16 +33,66 @@ def collide(a, b):
 
 boy = None
 zombies = None
-
+rankingList = []
 def enter():
     # game world is prepared already in world_build_state
     global boy,zombies
     boy = world_build_state.get_boy()
     zombies = world_build_state.get_zombies()
-
+    #RecordsInitialize()
     pass
+def SaveBoysRecords():
+    global boy,rankingList
+
+    with open('ranking.json','r') as f:
+        rankingList = json.load(f)
+
+    for i in range(0,10):
+        if rankingList[i]['#' + json.dumps(i + 1) + '. '] < boy.timeRecord:
+
+            for j in range(1,10-i):
+
+                rankingList[10   - j]['#' + json.dumps(10 - j + 1) + '. '] = rankingList[10 - j - 1]['#' + json.dumps(10 - j) + '. ']
+
+            rankingList[i]['#' + json.dumps(i + 1) + '. '] = boy.timeRecord
+
+            break
+
+
+    with open('ranking.json','w') as f:
+        json.dump(rankingList,f)
+
+"""""
+    for i in range(0,10):
+        if rankingList[i]['#' + json.dumps(i + 1) + '. '] < boy.timeRecord:
+
+            for j in range(i + 1,10):
+
+                rankingList[10 - j]['#' + json.dumps(10 - j + 1) + '. '] = rankingList[10 - j - 1]['#' + json.dumps(10 - j) + '. ']
+                print("와!신기록!")
+            rankingList[i]['#' + json.dumps(i + 1) + '. '] = boy.timeRecord
+
+            break
+"""""
+
+
+
+
+def RecordsInitialize():
+    dic = []
+    with open('ranking.json','w') as f:
+        for i in range(0,10):
+            s  = '#' + json.dumps(i + 1) + '. '
+            t = 0
+            dic.append({s:t})
+        json.dump(dic,f)
+
+
+
 
 def exit():
+    print("꾸에엑")
+    SaveBoysRecords()
     game_world.clear()
 
 def pause():
