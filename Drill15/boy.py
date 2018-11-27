@@ -129,6 +129,8 @@ class Boy:
         self.cur_state.enter(self, None)
         self.start_time = get_time()
 
+        self.timeRecord = 0
+
     def __getstate__(self):
         # fill here
         state = {'x': self.x, 'y': self.y, 'dir': self.dir, 'cur_state': self.cur_state}
@@ -166,8 +168,10 @@ class Boy:
             self.cur_state.enter(self, event)
 
     def draw(self):
+
         self.cur_state.draw(self)
         self.font.draw(self.x - 60, self.y + 50, '(Time: %3.2f)' % (get_time() - self.start_time), (0, 0, 0))
+        self.timeRecord = (get_time() - self.start_time)
         self.draw_bb()
 
     def handle_event(self, event):
